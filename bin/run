@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'pry'
+require_relative '../config/environment'
+
+Cli.new.start  # << make sure you have a START method - check!
