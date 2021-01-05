@@ -2,15 +2,11 @@
 class Cli
     attr_accessor :input, :name_array, :pokemon_index_name, :pokedex_input, :alpha_input, :d, :attack_array, :type_input, :match_type_input, :ten_types, :tt
 
-    # def render_ascii_art
-    # File.readlines("../lib/ascii.rb") do |line|
-    #     puts line
-    #     end
-    # end
+    def pokemon_art
     puts <<-'ART'.yellow
                                   ,'\                             
     _.----.        ____         ,'  \   ___    ___     ____       
-_,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`. 
+_,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`. 
 \      __    \    '-.  | /   `.  ___    |    \/    |   '-.   \ |  |
  \.    \ \   |  __  |  |/    ,','_  `.  |          | __  |    \|  |
    \    \/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |
@@ -20,13 +16,15 @@ _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
        \    \ `.__,'|  |`-._    `|      |__| \/ |  `.__,'|  | |   |
         \_.-'       |__|    `-._ |              '-.|     '-.| |   |
                                 `'                            '-._|
-ART
+    ART
+    end
 
-    #system(“clear”) - to clear screen'
+  
     @ten_types = []
 
     def start 
-         
+        system("clear")
+        pokemon_art
         puts "~~~~~~~~~~~~~~~~~~~~Welcome to N.O.S.P.I.C.!~~~~~~~~~~~~~~~~~~~~~~~~~".blue
         puts "           New Online Smallish Pokemon Information Database!".blue
         Api.all_data  # << api get info method - check!
