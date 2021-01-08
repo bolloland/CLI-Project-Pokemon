@@ -1,6 +1,6 @@
 
 class PokemonClass 
-    attr_accessor :name, :pokedex_no, :type, :hp, :attacks, :weaknesses, :att, :weak, :supertype, :get_attacks
+    attr_accessor :name, :pokedex_no, :type, :hp, :attacks, :weaknesses, :att, :weak, :supertype, :get_attacks, :pic
 
     @@all = []
   
@@ -12,7 +12,7 @@ class PokemonClass
         self.hp = pokemon_data["hp"]
         self.attacks = pokemon_data["attacks"]
         self.weaknesses = pokemon_data["weaknesses"] #.map {|w| w.values[0]}
-        
+        self.pic = pokemon_data["imageUrlHiRes"]
         @@all << self
     end
     

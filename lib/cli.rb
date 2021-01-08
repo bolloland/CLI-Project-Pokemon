@@ -85,8 +85,8 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
             puts ""
             exit  
         else
-            puts "Sorry! You entered a non-existant number or I don't understand that command!"
-            puts "Please, try again!"  
+            puts "Sorry! You entered a non-existant number or I don't understand that command!".magenta
+            puts "Please, try again!".magenta
             pokemon_options
         end
     end
@@ -101,6 +101,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         pokemon_type
         pokemon_attacks
         pokemon_weaknesses
+        pokemon_pic
         puts "***********************************".yellow
         puts ""
         pokemon_options
@@ -112,7 +113,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         
         def pokemon_number
             if d.pokedex_no == nil
-                puts "Pokedex Number:".red puts "This is a #{d.supertype.magenta} card, it doesn't have a Pokedex Number."
+                puts "Pokedex Number: ".white + "This is a(n) ".green + "#{d.supertype.magenta}" + " card, it doesn't have a Pokedex Number.".green
             else
                 puts "Pokedex Number: #{d.pokedex_no.to_s.light_green}" 
             end
@@ -120,7 +121,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
 
         def pokemon_hit_points
             if d.hp == nil
-                puts "Hit Points: This is a #{d.supertype.magenta} card, it doesn't have Hit Points.".red
+                puts "Hit Points: ".white + "This is a(n) ".green + "#{d.supertype.magenta}" + " card, it doesn't have Hit Points.".green
             else
                 puts "Hit Points: #{d.hp.light_green}"
             end
@@ -128,7 +129,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         
         def pokemon_type
             if d.type == nil
-                puts "Type: This card has no specific Type.".red
+                puts "Type:".white + " This card has no specific Type.".green
             else
                 puts "Type: #{d.type.join().light_green}"
             end
@@ -140,7 +141,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         
         def pokemon_attacks
             if d.attacks == nil
-                puts "Attacks: There are no Attacks for this card.".red
+                puts "Attacks:".white + " There are no Attacks for this card.".green
             else       
                 @attack_array = []
                 d.attacks.each do |x|
@@ -153,12 +154,16 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         def pokemon_weaknesses
             # binding.pry
             if d.weaknesses == nil
-                puts "Weaknesses: There are no Weaknesses for this card.".red
+                puts "Weaknesses: ".white + "There are no Weaknesses for this card.".green
             else
             d.weaknesses.map do |w|
                 puts "Weaknesses: #{w.values[0].light_green}"
                 end
             end
+        end
+
+        def pokemon_pic
+            puts "Card View: ".white + "#{d.pic.light_green}"
         end
 
     def list_pokemon_types
@@ -168,15 +173,15 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         end
             @ten_types = all_types.uniq.flatten.compact
         
-            @ten_types.each.with_index(1) {|type, indx| puts "#{indx}. #{type}"}
+            @ten_types.each.with_index(1) {|type, indx| puts "#{indx}. #{type.light_blue}"}
             puts "***********************************"
             type_options
     end
 
     def type_options
-        puts "To see all Pokemon of that type,"
-        puts " enter its corresponding number below:"
-        puts "  (If you want the main manu, hit 'M', and if you want to exit, hit 'X'.)"
+        puts "To see all Pokemon of that type,".light_yellow
+        puts " enter its corresponding number below:".light_yellow
+        puts "  (If you want the main manu, hit 'M', and if you want to exit, hit 'X'.)".light_blue
         puts ""
         @type_input = gets.strip
         puts "***********************************" 
