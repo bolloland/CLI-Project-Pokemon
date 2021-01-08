@@ -1,5 +1,3 @@
-# require 'rubygems'
-# require 'httparty'
 
 class PokemonClass 
     attr_accessor :name, :pokedex_no, :type, :hp, :attacks, :weaknesses, :att, :weak, :supertype, :get_attacks

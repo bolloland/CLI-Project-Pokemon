@@ -19,7 +19,6 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
     ART
     end
 
-  
     @ten_types = []
 
     def start 
@@ -61,20 +60,18 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
     end
 
     def alpha_pokemon #sorted by Pokemon.name, indexed 0-99!
-        #binding.pry
         PokemonClass.all.sort_by {|p| p.name}
     end
     
-    def indexed_by_name #CLI menu list with index by Pokemon.name
+    def indexed_by_name #CLI menu list with index by Pokemon.name  ??????COLUMNS?????
         alpha_pokemon.each.with_index(1) {|p, ind| puts "#{ind}. #{p.name.cyan} "}
         pokemon_options
     end
-    # binding.pry
     
     def pokemon_options
         puts ""
         puts "If you want more information about a Pokemon, enter its corresponding number below!".yellow
-        puts "(If you want the main manu, hit 'M', and if you want to exit, hit 'X'.)".blue
+        puts "(If you want the main menu, hit 'M', and if you want to exit, hit 'X'.)".blue
         puts ""
         @pokedex_input = gets.strip
    
@@ -114,12 +111,16 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         end
         
         def pokemon_number
-            puts "Pokedex Number: #{d.pokedex_no}" #why won't this take a color?
+            if d.pokedex_no == nil
+                puts "Pokedex Number:".red puts "This is a #{d.supertype.magenta} card, it doesn't have a Pokedex Number."
+            else
+                puts "Pokedex Number: #{d.pokedex_no.to_s.light_green}" 
+            end
         end
-        
+
         def pokemon_hit_points
             if d.hp == nil
-                puts "Hit Points: This is a #{d.supertype.light_green} card, it doesn't have Hit Points."
+                puts "Hit Points: This is a #{d.supertype.magenta} card, it doesn't have Hit Points.".red
             else
                 puts "Hit Points: #{d.hp.light_green}"
             end
@@ -127,7 +128,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         
         def pokemon_type
             if d.type == nil
-                puts "Type: This card has no specific Type."
+                puts "Type: This card has no specific Type.".red
             else
                 puts "Type: #{d.type.join().light_green}"
             end
@@ -138,9 +139,8 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         end
         
         def pokemon_attacks
-            #binding.pry
             if d.attacks == nil
-                puts "Attacks: There are no Attacks for this card."
+                puts "Attacks: There are no Attacks for this card.".red
             else       
                 @attack_array = []
                 d.attacks.each do |x|
@@ -153,7 +153,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         def pokemon_weaknesses
             # binding.pry
             if d.weaknesses == nil
-                puts "Weaknesses: There are no Weaknesses for this card."
+                puts "Weaknesses: There are no Weaknesses for this card.".red
             else
             d.weaknesses.map do |w|
                 puts "Weaknesses: #{w.values[0].light_green}"
