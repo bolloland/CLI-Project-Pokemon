@@ -2,7 +2,7 @@
 
 # tl/dr "CLI program that sorts through a Pokemon API and returns key information about your deck of 100 cards."
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#INSTALL INSTRUCTIONS:
+INSTALL INSTRUCTIONS:
  - run <bundle install>
  - run <.bin/run>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
