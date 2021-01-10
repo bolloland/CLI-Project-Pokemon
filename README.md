@@ -1,10 +1,11 @@
-# CLI-Project-Pokemon
+# Phase 1 Phinal - CLI Application from a (Pokemon) API
 
 # tl/dr "CLI program that sorts through a Pokemon API and returns key information about your deck of Pokemon cards."
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 INSTALL INSTRUCTIONS:
- - run <bundle install>
- - run <.bin/run>
+ - copy and git clone into your terminal
+ - in terminal: $ bundle install
+ - in terminal: $ ruby bin/run
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This program:
  - Imports an API file that contains data on 100 random Pokemon Cards
