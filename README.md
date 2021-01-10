@@ -27,8 +27,13 @@ I came upon a Pokemon API. "Perfect!", I thought. As the father to a 6-year old 
 all things Pokemon for the better part of 3 years. Cards, books, pokeballs, stuffed animals, action figures, wall decals, hoodies, 
 etc. I hope he enjoyed it, because that was his college fund.
 
-The program initially sorts through the "deck", and alphabetizes them for your perusal. After that, you can choose any card in that deck and "flip it over" to see some key information about that card. I thought it would be interesting to get into my son's mind and find out what was important, namely when he's doing battles ["my deck of cards vs. your deck of cards"]. And that's the information I provided in my program. 
+The program initially sorts through the "deck", and alphabetizes them for your perusal. After that, you can choose any card 
+in that deck and "flip it over" to see some keyinformation about that card. I thought it would be interesting to get my 
+son's opinion and find out what was important when he's doing battling ["my deck of cards vs. your deck of cards"], and how
+best to incoroporate that into my code. 
 
-Another key component of battles, for those not in the know, is that Pokemon have specific attacks they use, and are susceptible to specific _types_ of attacks. So I wanted to be able to include those types, and be able to circle back and find those Pokemon in my "deck".
+Another key component of battles, as I soon learned, is that Pokemon have specific attacks they use, and are susceptible to 
+specific attacks from specific types of Pokemon. So, I wanted the user to get a list of those specific Pokemon, and get 
+deeper data on those specific cards.
 
 If nothing else, my 6-year-old and his friends were totally impressed. 
