@@ -1,6 +1,6 @@
 # CLI-Project-Pokemon
 
-# tl/dr "CLI program that sorts through a Pokemon API and returns key information about your deck of 100 cards."
+# tl/dr "CLI program that sorts through a Pokemon API and returns key information about your deck of Pokemon cards."
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #INSTALL INSTRUCTIONS:
 run <bundle install>
