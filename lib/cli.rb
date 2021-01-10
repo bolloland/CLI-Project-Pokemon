@@ -65,14 +65,14 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
     
     def indexed_by_name #CLI menu list with index by Pokemon.name  ??????COLUMNS?????
         alpha_pokemon.each.with_index(1) {|p, ind| puts "#{ind}. #{p.name.cyan} "}
-        pokemon_options
-    end
-    
-    def pokemon_options
         puts ""
         puts "If you want more information about a Pokemon, enter its corresponding number below!".yellow
         puts "(If you want the main menu, hit 'M', and if you want to exit, hit 'X'.)".blue
         puts ""
+        pokemon_options
+    end
+    
+    def pokemon_options #gets input for individual Cards || menu options || invalid response
         @pokedex_input = gets.strip
    
         if pokedex_input.to_i.between?(1, 100) 
@@ -81,7 +81,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         elsif pokedex_input == "M" || pokedex_input == "m"
             what_letter
         elsif pokedex_input == "X" || pokedex_input == "x"
-            puts "Exiting out...Go catch 'em all!"
+            puts "Exiting out...Go catch 'em all!".yellow
             puts ""
             exit  
         else
@@ -91,7 +91,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         end
     end
 
-    def pokemon_details(alpha_input)
+    def pokemon_details(alpha_input) #returns leveled data based on user input
         @d = alpha_pokemon[alpha_input]
         puts "***********************************".yellow
         pokemon_name
@@ -107,11 +107,11 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         pokemon_options
     end
 
-        def pokemon_name
+        def pokemon_name #returns name
             puts "Name: #{d.name.green}"
         end
         
-        def pokemon_number
+        def pokemon_number #returns number, if available, or alternate response for nil
             if d.pokedex_no == nil
                 puts "Pokedex Number: ".white + "This is a(n) ".green + "#{d.supertype.magenta}" + " card, it doesn't have a Pokedex Number.".green
             else
@@ -119,7 +119,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
             end
         end
 
-        def pokemon_hit_points
+        def pokemon_hit_points #returns hp, if available, or alternate response for nil
             if d.hp == nil
                 puts "Hit Points: ".white + "This is a(n) ".green + "#{d.supertype.magenta}" + " card, it doesn't have Hit Points.".green
             else
@@ -127,7 +127,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
             end
         end
         
-        def pokemon_type
+        def pokemon_type #returns type, if available, or alternate response for nil
             if d.type == nil
                 puts "Type:".white + " This card has no specific Type.".green
             else
@@ -135,24 +135,23 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
             end
         end
 
-        def pokemon_supertype
+        def pokemon_supertype #returns supertype
             puts "Supertype: #{d.supertype.light_green}"
         end
         
-        def pokemon_attacks
+        def pokemon_attacks #filters out nil response, then iterates through and returns attacks 
             if d.attacks == nil
                 puts "Attacks:".white + " There are no Attacks for this card.".green
             else       
                 @attack_array = []
                 d.attacks.each do |x|
                 @attack_array << x["name"]
-            end   #x.values[1]                 
+            end                 
                 puts "Attacks: #{@attack_array.join(", ").light_green}"
             end
         end
 
-        def pokemon_weaknesses
-            # binding.pry
+        def pokemon_weaknesses #filters out nil response, then iterates through and returns weaknesses 
             if d.weaknesses == nil
                 puts "Weaknesses: ".white + "There are no Weaknesses for this card.".green
             else
@@ -162,11 +161,11 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
             end
         end
 
-        def pokemon_pic
+        def pokemon_pic #returns link to hi-res photo (could be updated)
             puts "Card View: ".white + "#{d.pic.light_green}"
         end
 
-    def list_pokemon_types
+    def list_pokemon_types #returns indexed list of unique types from alpha_list
         all_types = []
         PokemonClass.all.each do |t|
             all_types << t.type
@@ -178,7 +177,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
             type_options
     end
 
-    def type_options
+    def type_options #returns same pokemon_details from original list of 100 || main menu || exit
         puts "To see all Pokemon of that type,".light_yellow
         puts " enter its corresponding number below:".light_yellow
         puts "  (If you want the main manu, hit 'M', and if you want to exit, hit 'X'.)".light_blue
@@ -188,9 +187,9 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         if type_input.to_i.between?(1, 10) 
             @match_type_input = type_input.to_i-1
             match_type(match_type_input)
-        elsif pokedex_input == "M" || pokedex_input == "m"
+        elsif type_input == "M" || type_input == "m"
             what_letter
-        elsif pokedex_input == "X" || pokedex_input == "x"
+        elsif type_input == "X" || type_input == "x"
             puts "Exiting out...Go catch 'em all!"
             puts ""
             exit  
@@ -201,14 +200,11 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         end
     end
     
-    def  match_type(match_type_input)
+    def  match_type(match_type_input) # pulls indexed list of cards with that type
         @tt = []
         @tt << @ten_types[match_type_input]
         puts "These are all #{@ten_types[match_type_input]} types of Pokemon:"
-        # PokemonClass.all.each do |t|
-        #     if t.type.downcase == type_input.downcase
         alpha_pokemon.each.with_index(1) do |p, ind|
-            #binding.pry
             if @tt == p.type
                 puts "#{ind}. #{p.name}"
             end
