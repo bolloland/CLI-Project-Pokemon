@@ -207,10 +207,9 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         puts "These are all #{@ten_types[match_type_input]} types of Pokemon:"
         alpha_pokemon.each.with_index(1) do |p, ind|
             if @tt == p.type
-                puts "#{ind}. #{p.name}"
+                puts "#{ind}. #{p.name.light_blue}"
             end
         end
-        puts ""
         pokemon_options
     end
 
