@@ -1,4 +1,4 @@
-# Phase 1 Phinal - CLI Application from a (Pokemon) API
+# Phase 1 Final - CLI Application from a (Pokemon) API - Flatiron School
 
 # tl/dr "CLI program that sorts through a Pokemon API and returns key information about your deck of Pokemon cards."
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
