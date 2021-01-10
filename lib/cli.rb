@@ -190,7 +190,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         elsif type_input == "M" || type_input == "m"
             what_letter
         elsif type_input == "X" || type_input == "x"
-            puts "Exiting out...Go catch 'em all!"
+            puts "Exiting out...".blue + "Go catch 'em all!".yellow
             puts ""
             exit  
         else
