@@ -51,7 +51,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         elsif input == "T"|| input == "t"
             list_pokemon_types
         elsif input == "X" || input == "x"
-            puts "Exiting out...gotta catch 'em all!"
+            puts "Exiting out...".blue + "Gotta catch 'em all!".yellow
             exit     
         else
             puts "I didn't understand that...look again at your options:"
@@ -81,7 +81,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         elsif pokedex_input == "M" || pokedex_input == "m"
             what_letter
         elsif pokedex_input == "X" || pokedex_input == "x"
-            puts "Exiting out...".blue + "Go catch 'em all!".yellow
+            puts "Exiting out...".blue + "Gotta catch 'em all!".yellow
             puts ""
             exit  
         else
@@ -190,7 +190,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         elsif type_input == "M" || type_input == "m"
             what_letter
         elsif type_input == "X" || type_input == "x"
-            puts "Exiting out...".blue + "Go catch 'em all!".yellow
+            puts "Exiting out...".blue + "Gotta catch 'em all!".yellow
             puts ""
             exit  
         else
