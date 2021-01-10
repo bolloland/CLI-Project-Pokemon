@@ -81,7 +81,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         elsif pokedex_input == "M" || pokedex_input == "m"
             what_letter
         elsif pokedex_input == "X" || pokedex_input == "x"
-            puts "Exiting out...Go catch 'em all!".yellow
+            puts "Exiting out...".blue + "Go catch 'em all!".yellow
             puts ""
             exit  
         else
@@ -194,8 +194,8 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
             puts ""
             exit  
         else
-            puts "Sorry! You entered a non-existant number or I don't understand that command!"
-            puts "Please, try again!"  
+            puts "Sorry! You entered a non-existant number or I don't understand that command!".magenta
+            puts "Please, try again!".magenta  
             type_options
         end
     end
