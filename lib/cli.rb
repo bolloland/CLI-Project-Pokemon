@@ -65,16 +65,17 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
     
     def indexed_by_name #CLI menu list with index by Pokemon.name  ??????COLUMNS?????
         alpha_pokemon.each.with_index(1) {|p, ind| puts "#{ind}. #{p.name.cyan} "}
-        puts ""
-        puts "If you want more information about a Pokemon, enter its corresponding number below!".yellow
-        puts "(If you want the main menu, hit 'M', and if you want to exit, hit 'X'.)".blue
-        puts ""
+        
         pokemon_options
     end
     
     def pokemon_options #gets input for individual Cards || menu options || invalid response
+        puts ""
+        puts "***********************************".yellow
+        puts "If you want more information about a Pokemon, enter its corresponding number below!".yellow
+        puts "    (If you want the main menu, hit 'M', and if you want to exit, hit 'X'.)".blue
+        puts ""
         @pokedex_input = gets.strip
-   
         if pokedex_input.to_i.between?(1, 100) 
             @alpha_input = pokedex_input.to_i-1
             pokemon_details(alpha_input)
@@ -103,7 +104,7 @@ _,-'       `.     |    |  /`.   \,-''   |   \  /   |   |    \  |`.
         pokemon_weaknesses
         pokemon_pic
         puts "***********************************".yellow
-        puts ""
+        
         pokemon_options
     end
 

@@ -4,9 +4,9 @@
 # require 'json'
 
 class Api 
-    attr_accessor :all_data
+    # attr_accessor :all_data
     
-    all_data = []
+    # all_data = []
     
     def self.cards_url
         "https://api.pokemontcg.io/v1/cards"
